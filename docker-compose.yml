@@ -1,0 +1,24 @@
+version: '3'
+
+networks:
+  rancher:
+    external: true
+
+volumes:
+    rancher:
+
+services:
+  server:
+    image: rancher/rancher:v2.7-head
+    privileged: true
+    restart: always
+    ports:
+     - 6443:6443
+     - 443:443
+    networks:
+     - rancher
+    labels:
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:rancher.hom.k8s.cardpay.com.br"
+    volumes:
+      - rancher:/var/lib/rancher
