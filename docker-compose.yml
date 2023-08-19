@@ -12,6 +12,8 @@ services:
     image: rancher/rancher:v2.7-head
     privileged: true
     restart: always
+    env_file:
+      - .env
     ports:
      - 6443:6443
      - 443:443
