@@ -9,7 +9,7 @@ volumes:
 
 services:
   server:
-    image: rancher/rancher:v2.7-head
+    image: rancher/rancher:v2.8-head
     privileged: true
     restart: always
     ports:
